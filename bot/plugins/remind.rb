@@ -55,7 +55,7 @@ module Cinch
                 @reminders[dowhen] = {:recipient => recipient, :about => about, :prefix => prefix}
 
                 #m.reply("I will remind #{ack_recipient} about \"#{about}\" at #{dowhen} (my time)", :prefix => true)
-                m.reply("don't worry! I will remind #{ack_recipient} about \"#{about}\" in #{args[4]} #{args[5]}", :prefix => true)
+                m.reply("OK, I will remind #{ack_recipient} about \"#{about}\" in #{args[4]} #{args[5]}", :prefix => true)
             end
 
             def poll_reminders(*args)
@@ -107,7 +107,7 @@ module Cinch
             end
 
             def dont_follow(m)
-                m.reply("Sorry, I don't quite understand the phrasing", :prefix => true)
+                m.reply("Sorry, I don't quite understand the phrasing.", :prefix => true)
             end
         end
     end
