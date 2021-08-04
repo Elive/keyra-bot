@@ -24,8 +24,12 @@ main(){
         start)
             bot_start
             ;;
-        stop)
+        stop|close)
             bot_close
+            ;;
+        restart)
+            bot_close
+            bot_start
             ;;
         *)
             bot_close

@@ -33,6 +33,12 @@ bot = Cinch::Bot.new do
         c.realname = account['user']
         c.nick = account['user']
 
+        # The Nickserv accouname of the bot. This is usually the same as the nickname
+        c.sasl.username = account['user']
+        # The Nickserv password of the bot.
+        c.sasl.password = account['pass']
+
+
         #
         # Plugins:
         #
