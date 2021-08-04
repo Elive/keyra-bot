@@ -21,7 +21,7 @@ module Cinch
             end
           else
 
-            if m.user.nick != bot.nick && m.user.nick =~ /(Elive_user)/
+            if m.user.nick != bot.nick && m.user.nick =~ /(Elive_user|EliveLinux|EliveWeb|EliveForum)/
               sleep 2
               if m.user.online
                 m.reply "welcome to Elive, #{m.user.nick}! =)"
