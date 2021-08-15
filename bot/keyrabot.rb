@@ -26,7 +26,7 @@ bot = Cinch::Bot.new do
         c.server = account['server']
         #c.channels = ["#elive-bots"]
         # anybody knows how to set this on the yaml file ? (list of items
-        c.channels = ["#elive", "#elive-dev", "#elive-bots"]
+        c.channels = account['channels'] #["#elive", "#elive-dev", "#elive-bots"]
 
         #c.user = "superkeyra2"
         c.user = account['user']
