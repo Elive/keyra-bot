@@ -21,7 +21,11 @@ module Cinch
                     @keywords.size > 0
                     then
                     m.user.send "Keywords start:"
-                    @keywords.each{|k,v| m.user.send "'#{k}': '#{v}'." }
+                    for keyword,valueword in @keywords do
+                      m.user.send "'#{keyword}': '#{valueword}'"
+                    end
+                    #@keywords.each{|k,v| m.user.send "'#{k}': '#{v}'." }
+                    #Don't know why the .each didn't work, but what's important is that the new one DOES :P
                     m.user.send "Keywords end."
                     m.reply "Sent you the list of keywords in a private message!"
                 else
