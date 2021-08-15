@@ -16,16 +16,17 @@ module Cinch
             end
 
             def keywords(m)
-                m.reply "Listing of keywords assigned is disabled to avoid flood, if you want to collaborate by enabling this feature to send the list only in a private message to the user you can check the code at https://github.com/Elive/keyra-bot"
-                #if
-                    #@keywords.size > 0
-                    #then
-                    #m.reply "Keywords start:"
-                    #@keywords.each{|k,v| m.reply "'#{k}': '#{v}'." }
-                    #m.reply "Keywords end."
-                #else
-                    #m.reply "No keywords defined yet."
-                #end
+                #m.reply "Listing of keywords assigned is disabled to avoid flood, if you want to collaborate by enabling this feature to send the list only in a private message to the user you can check the code at https://github.com/Elive/keyra-bot"
+                if
+                    @keywords.size > 0
+                    then
+                    m.user.send "Keywords start:"
+                    @keywords.each{|k,v| m.user.send "'#{k}': '#{v}'." }
+                    m.user.send "Keywords end."
+                    m.reply "Sent you the list of keywords in a private message!"
+                else
+                    m.reply "No keywords defined yet."
+                end
             end
 
             def keyword_define(m, keyword, definition)
