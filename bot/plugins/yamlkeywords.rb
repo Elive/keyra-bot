@@ -20,6 +20,16 @@ module Cinch
                 if
                     @keywords.size > 0
                     then
+                    #m.user.send "Keywords start:"
+                    #for keyword,valueword in @keywords do
+                    #  m.user.send "'#{keyword}': '#{valueword}'"
+                    #end
+                    ##@keywords.each{|k,v| m.user.send "'#{k}': '#{v}'." }
+                    ##Don't know why the .each didn't work, but what's important is that the new one DOES :P
+                    #m.user.send "Keywords end."
+                    #   -- Elive Feature --
+                    #   Send keyword list in paste instead of spamming
+                    #   the user.
                     m.user.send `curl -F 'sprunge=<keywords.yaml' http://sprunge.us`
                     m.reply "Sent you the list of keywords in a private message!"
                 else
