@@ -33,6 +33,7 @@ gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB8
 curl -sSL https://get.rvm.io | bash -s
 unset GEM_HOME
 source ~/.rvm/scripts/rvm
+rvm autolibs disable
 rvm install 2.7
 gem install cinch cinch-yaml-keywords
 ```
