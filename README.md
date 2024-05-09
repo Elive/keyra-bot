@@ -28,7 +28,8 @@ Run it!
 
 **IMPORTANT**:  the actual version of cinch doesn't support ruby 3.0 or higher, so you must install an older version like **2.7** to make it running, this is a small recipe:
 ```
-# rm -rf .local/share/gem/ .gem* .rvm*
+cd ~
+# command rm -rf .local/share/gem/ .rvm* .gem
 gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s
 unset GEM_HOME
