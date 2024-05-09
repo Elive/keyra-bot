@@ -33,8 +33,20 @@ gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB8
 curl -sSL https://get.rvm.io | bash -s
 unset GEM_HOME
 source ~/.rvm/scripts/rvm
-# rvm autolibs disable  # run this if you don't have 'sudo' access on the server for your user
-rvm install 2.7
+sudo -H -n echo || rvm autolibs disable  # this is run if you don't have 'sudo' access on the server for your user
+if ! rvm install 2.7 ; then
+    mkdir -p ~/Downloads
+    cd ~/Downloads
+    wget https://www.openssl.org/source/openssl-1.1.1t.tar.gz
+    tar zxvf openssl-1.1.1t.tar.gz
+    cd openssl-1.1.1t
+    ./config --prefix=$HOME/.openssl/openssl-1.1.1t --openssldir=$HOME/.openssl/openssl-1.1.1t
+    make
+    make install
+    rm -rf ~/.openssl/openssl-1.1.1t/certs
+    ln -s /etc/ssl/certs ~/.openssl/openssl-1.1.1t/certs
+    rvm reinstall ruby-2.7 --with-openssl-dir=$HOME/.openssl/openssl-1.1.1t
+fi
 gem install cinch cinch-yaml-keywords
 ```
 
